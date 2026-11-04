@@ -1,73 +1,44 @@
-# Maricica învață să fie curată
+# Maricica învață să fie curată — versiunea CINEMA 3D
 
-**Poveste 3D interactivă în limba română, pentru copii de aproximativ 3 ani.**
+**Poveste animată + joc educațional cu voce în limba română, pentru grupa mică (3 ani).** Adaptare pedagogică după „Maricica”, de Luiza Vlădescu.
 
-Aplicație realizată cu HTML, CSS și JavaScript, fără framework, server sau cont de utilizator. Poate fi găzduită gratuit pe GitHub Pages. Conține cele 55 de înregistrări audio ale poveștii și 19 înregistrări pentru jocul de după poveste și păstrează același personaj Maricica în toate cele șase momente.
+## Ce am schimbat
 
-## Ce conține
+- Am eliminat opțiunea **„Povestește și joacă-te”**, care relua narațiunea.
+- Meniul principal oferă două trasee clare: **Ascultă povestea** și **Ne jucăm cu Maricica!**.
+- Am păstrat **exact același model vizual** pentru Maricica. Au fost construite două variante, cu murdărie ușoară și îngrijită, fără schimbarea fizionomiei.
+- Am introdus o colegă de grădiniță 3D și un ursuleț de pluș 3D.
+- Am refăcut elementele principale de igienă în stil 3D și fundalurile tuturor celor șase momente.
+- Am adăugat mișcare 2,5D (personaje construite din straturi ale unor imagini 3D): gesturi cu brațele, balans, reacții la dialog, reacții ale ursulețului, obiecte animate, particule și tranziții lente. **Nu este un film 3D cu animație facială completă**.
+- Am păstrat **55 MP3 pentru poveste** și **19 MP3 pentru partea interactivă** din ElevenLabs.
+- Jocul oprește redarea după întrebări și așteaptă alegerea copilului. Exercițiile de mișcare au pauze după terminarea audio: 6, 8, 7, 8 secunde, plus butoane pentru **+5 secunde** și **Gata, mai departe**.
+- Fără reclame, cont, monitorizare sau clasamente.
 
-- **Ascultă povestea:** înregistrări audio cu mai multe voci, subtitrare sincronizată pe fragmente, 6 momente, controale pentru pauză, repetare și navigare.
-- **Povestește și joacă-te:** aceeași poveste, cu 5 opriri interactive. Copilul alege între două imagini mari și primește feedback prietenos.
-- **Ne jucăm cu Maricica! (NOU):** 3 întrebări cu audio ElevenLabs, așteptarea atingerii răspunsului, voce de felicitare doar DUPĂ alegere, încurajare la răspuns greșit, 4 sarcini de mișcare cu pauze automate după terminarea instrucțiunii (6, 8, 7 și 8 secunde), opțiunea +5 secunde sau Gata, mai departe, apoi încheierea audio.
-- **Alte jocuri:** alegerea obiectelor de igienă, ordonarea pașilor și descoperirea vocilor personajelor din înregistrările originale.
-- **Pentru educatoare:** obiective didactice și recomandări de utilizare.
+## Instalare în repository-ul existent `maricica`
 
-Audio-ul poveștii funcționează fără ElevenLabs sau alte servicii online: fișierele MP3 sunt în acest proiect. Pentru întrebările interactive, aplicația folosește *opțional* o voce românească instalată în browser/sistem. În lipsa ei, întrebările se afișează cu text și imagini, putând fi citite de educatoare.
+Dacă ai deja jocul vechi pe GitHub, **nu reîncărca audio și fișierele vechi**. Folosește pachetul mic de actualizare:
 
-## Publicare pe GitHub Pages
+1. Dezarhivează `Maricica_Update_3D_GitHub.zip` pe calculator.
+2. Deschide repository-ul `https://github.com/alinapalcu1-ship-it/maricica` și alege `Add file` → `Upload files`.
+3. Trage **conținutul** pachetului: `index.html`, `cinema.css`, `cinema.js`, `README.md` și directorul `assets/cinema`.
+4. Acceptă înlocuirea `index.html`/`README.md` dacă apare solicitarea și apasă `Commit changes`.
+5. GitHub Pages va construi din nou site-ul automat. Actualizează pagina cu `Ctrl+F5` pentru a evita versiunea salvată în cache.
 
-1. Creează un repository nou pe GitHub, de exemplu `maricica-interactiva`, cu vizibilitatea dorită pentru GitHub Pages.
-2. Dezarhivează ZIP-ul și **încarcă în rădăcina repository-ului conținutul folderului `maricica-premium`**, nu doar fișierul ZIP. `index.html` trebuie să fie direct în rădăcină.
-3. Accesează **Settings → Pages → Build and deployment → Deploy from a branch**.
-4. Selectează **main** și **/(root)**, apoi salvează.
-5. După publicare, accesează linkul indicat în pagina **Settings → Pages**.
+Linkul rămâne `https://alinapalcu1-ship-it.github.io/maricica/`.
 
-Nu e nevoie de `npm install`, compilare, tokenuri API sau chei ElevenLabs.
+## Structură tehnică
+
+- `index.html` — pagina principală, adaugă modulul cinematic
+- `style.css` + `script.js` — funcționalitățile originale, inclusiv audio și pauzele
+- `cinema.css` + `cinema.js` — noul design, distribuția personajelor, gesturi 2,5D și meniul simplificat
+- `assets/cinema/` — Maricica curată/neîngrijită, brațe separate, ursuleț, colega de grădiniță, decoruri, obiecte 3D
+- `audio/01.mp3` … `55.mp3` — poveste
+- `audio/interactive/01.mp3` … `19.mp3` — jocul interactiv
 
 ## Testare înainte de activitatea cu copiii
 
-- Verifică în Chrome/Edge pe tablă și pe telefon dacă sunetul pornește după apăsarea butonului „Ascultă povestea”. Browserul poate bloca pornirea automată a sunetului până la primul gest al utilizatorului.
-- Parcurge fiecare din cele 6 momente și verifică funcționarea butoanelor înainte, înapoi, pauză și repetare.
-- Testează toate cele 5 întrebări, jocul de ordonare și toate cele 4 obiecte din „Descopăr vocile”.
-- Pe tabla Samsung, verifică dacă Maricica, întrebările și butoanele rămân în zona vizibilă.
-- Dacă vei publica proiectul public, verifică drepturile de distribuire pentru înregistrările ElevenLabs și condițiile aplicabile adaptării operei literare.
+Testele automate de navigare și afișare au fost rulate la 390×844, 1024×768 și 1440×900. Este necesară verificarea **pe tabla Samsung reală** pentru audio, dimensiuni, latență și calitatea animațiilor.
 
-## Structura
+Parcurge cele 6 momente și verifică dacă murdăria se vede la grădiniță, dar dispare după îngrijire; verifică și colega, ursulețul și cele 3 întrebări. Apoi lasă să se încheie cele 4 pauze de mișcare; pentru copii, poți folosi butonul `+5 secunde`.
 
-```text
-maricica-premium/
-├── index.html
-├── style.css
-├── script.js
-├── favicon.svg
-├── README.md
-├── audio/
-│   ├── 01.mp3
-│   ├── ...
-│   ├── 55.mp3
-│   └── interactive/01.mp3 ... 19.mp3
-└── assets/
-    ├── maricica.webp
-    ├── scenes/      (6 decoruri ilustrate, SVG)
-    └── objects/     (9 obiecte/personaje, SVG)
-```
-
-## Aspecte educaționale și de confidențialitate
-
-Conținutul este o adaptare pentru copii de 3 ani după **„Maricica” de Luiza Vlădescu**. Nu colectează date, nu afișează reclame și nu cere autentificare. Întrebările sunt pozitive și fără penalizări. Nu există contorizarea performanței copiilor.
-
-## Notă despre personaj
-
-Fișierul `assets/maricica.webp` conține **decupajul personajului ales de utilizatoare** din referința vizuală „Stil 1 – 3D (cartoon modern)”. Este reutilizat în toate scenele tocmai pentru a evita schimbarea fizionomiei. Mișcările sunt efecte 2D subtile și **nu** reprezintă animație 3D complexă, cu schelet articulat.
-
-## Înregistrări ElevenLabs pentru jocul ghidat
-
-Arhiva „ElevenLabs_Untitled_project.zip” a fost integrată în `audio/interactive/`, în ordinea celor 19 paragrafe exportate. Nu este necesară o nouă generare. Asocierea propusă, pe baza ordinii și a textului din conversație, este:
-
-- 01–03: introducere; 04/05: întrebare și răspuns – mâini; 06/07: dinți; 08/09: pieptene.
-- 10: invitație la mișcare; 11: arată mâinile; 12: mimează spălatul; 13: pieptănatul; 14: periajul.
-- 15–18: felicitări/încheiere; 19: încurajarea „Mai încearcă o dată!”.
-
-**Verificare recomandată:** fragmentele sunt exportate cu numere, fără transcrieri; ascultă succesiunea completă înainte de folosirea la grupă și confirmă că audio #19 este încurajarea. Temporizarea poate fi modificată din `GUIDED_MOTIONS[].seconds` în `script.js`.
-
-Pauza începe doar **după terminarea fiecărei instrucțiuni**. Pauzarea aplicației oprește și numărătoarea inversă.
+**Notă drepturi:** verifică dreptul de publicare a adaptării poveștii și condițiile de utilizare/publicare a înregistrărilor generate în ElevenLabs, în funcție de planul folosit. Ilustrațiile 3D folosite sunt materiale vizuale realizate pentru acest proiect.
