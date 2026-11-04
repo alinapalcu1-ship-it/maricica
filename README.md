@@ -1,44 +1,45 @@
-# Maricica învață să fie curată — versiunea CINEMA 3D
+# Maricica învață să fie curată — ediția 4.0 (poveste și jocuri)
 
-**Poveste animată + joc educațional cu voce în limba română, pentru grupa mică (3 ani).** Adaptare pedagogică după „Maricica”, de Luiza Vlădescu.
+Aplicație educațională pentru grupa mică (3 ani), adaptare după povestea „Maricica” de Luiza Vlădescu.
 
-## Ce am schimbat
+## Noutăți față de ediția Cinema 3D
 
-- Am eliminat opțiunea **„Povestește și joacă-te”**, care relua narațiunea.
-- Meniul principal oferă două trasee clare: **Ascultă povestea** și **Ne jucăm cu Maricica!**.
-- Am păstrat **exact același model vizual** pentru Maricica. Au fost construite două variante, cu murdărie ușoară și îngrijită, fără schimbarea fizionomiei.
-- Am introdus o colegă de grădiniță 3D și un ursuleț de pluș 3D.
-- Am refăcut elementele principale de igienă în stil 3D și fundalurile tuturor celor șase momente.
-- Am adăugat mișcare 2,5D (personaje construite din straturi ale unor imagini 3D): gesturi cu brațele, balans, reacții la dialog, reacții ale ursulețului, obiecte animate, particule și tranziții lente. **Nu este un film 3D cu animație facială completă**.
-- Am păstrat **55 MP3 pentru poveste** și **19 MP3 pentru partea interactivă** din ElevenLabs.
-- Jocul oprește redarea după întrebări și așteaptă alegerea copilului. Exercițiile de mișcare au pauze după terminarea audio: 6, 8, 7, 8 secunde, plus butoane pentru **+5 secunde** și **Gata, mai departe**.
-- Fără reclame, cont, monitorizare sau clasamente.
+- Scene vizuale mai detaliate pentru dormitor, baie, grădiniță și îngrijire. **Colega și ceilalți copii** sunt integrați într-o scenă 3D de grădiniță, nu imagini SVG separate.
+- Imagine de baie cu Maricica în fața oglinzii și o **reflexie a modelului ales**; obiectele de igienă sunt mărite.
+- Maricica este reprezentată cu urme discrete de murdărie înainte de spălare și curată după îngrijire.
+- Puzzle cu **4 piese mari** (2×2). Copilul atinge piesa și locul ei. Nu este nevoie de drag-and-drop.
+- Memory cu **două perechi** (patru cartonașe), fără cronometru și fără punctaj negativ.
+- Păstrează jocul audio ElevenLabs cu cele 3 întrebări și 4 mișcări, pauze de 6/8/7/8 secunde și controlul **+5 secunde**.
+- Butoane și personaje adaptate pentru mobil (390 px), tabletă (768 px), laptop (1440 px), tablă Samsung (1920×1080).
+- A doua variantă care repeta povestea rămâne eliminată.
 
-## Instalare în repository-ul existent `maricica`
+## Limitare tehnică importantă
 
-Dacă ai deja jocul vechi pe GitHub, **nu reîncărca audio și fișierele vechi**. Folosește pachetul mic de actualizare:
+Animațiile din poveste sunt de tip **2,5D**: mișcare cinematografică subtilă a cadrelor, tranziții și reacții vizuale. Nu reprezintă încă un film 3D cu personaje rigate, expresii faciale animate cadru-cu-cadru și sincronizare labială. Mai multe decoruri sunt ilustrații 3D generate, nu scene 3D geometrice interactive. Unele ilustrații de poveste sunt interpretări ale personajului, nu un model 3D unic rigat.
 
-1. Dezarhivează `Maricica_Update_3D_GitHub.zip` pe calculator.
-2. Deschide repository-ul `https://github.com/alinapalcu1-ship-it/maricica` și alege `Add file` → `Upload files`.
-3. Trage **conținutul** pachetului: `index.html`, `cinema.css`, `cinema.js`, `README.md` și directorul `assets/cinema`.
-4. Acceptă înlocuirea `index.html`/`README.md` dacă apare solicitarea și apasă `Commit changes`.
-5. GitHub Pages va construi din nou site-ul automat. Actualizează pagina cu `Ctrl+F5` pentru a evita versiunea salvată în cache.
+## Actualizare în repository-ul GitHub existent
 
-Linkul rămâne `https://alinapalcu1-ship-it.github.io/maricica/`.
+Repository: `https://github.com/alinapalcu1-ship-it/maricica`
 
-## Structură tehnică
+1. Folosește fișierul `Maricica_Update_Puzzle_Memory_3D.zip`.
+2. Dezarhivează-l pe calculator.
+3. Deschide pagina `https://github.com/alinapalcu1-ship-it/maricica/upload/main`.
+4. Trage **conținutul** folderului extras: `index.html`, `v4.css`, `v4.js`, `README.md` și directorul `assets/cinema4/`.
+5. Alege *Commit changes*. Fișierele vechi (`audio/`, `script.js`, `cinema.js`, `cinema.css`, `style.css` și alte imagini) trebuie **păstrate**.
+6. GitHub Pages folosește deja `main / (root)`. După publicare, reîncarcă fără cache cu `Ctrl+F5` pe PC.
 
-- `index.html` — pagina principală, adaugă modulul cinematic
-- `style.css` + `script.js` — funcționalitățile originale, inclusiv audio și pauzele
-- `cinema.css` + `cinema.js` — noul design, distribuția personajelor, gesturi 2,5D și meniul simplificat
-- `assets/cinema/` — Maricica curată/neîngrijită, brațe separate, ursuleț, colega de grădiniță, decoruri, obiecte 3D
-- `audio/01.mp3` … `55.mp3` — poveste
-- `audio/interactive/01.mp3` … `19.mp3` — jocul interactiv
+Pagina site-ului: `https://alinapalcu1-ship-it.github.io/maricica/`.
 
-## Testare înainte de activitatea cu copiii
+## Verificări automate efectuate
 
-Testele automate de navigare și afișare au fost rulate la 390×844, 1024×768 și 1440×900. Este necesară verificarea **pe tabla Samsung reală** pentru audio, dimensiuni, latență și calitatea animațiilor.
+- Încărcare fără erori JavaScript în pagină la 390×844, 768×1024, 1440×900 și 1920×1080.
+- Puzzle: toate cele 4 piese se pot plasa, apare felicitarea.
+- Memory: 4 cartonașe și întoarcere de cartonaș.
+- Ecrane de poveste: dormitor, baie, grădiniță.
+- Nu s-au reînregistrat fișierele audio și nu s-au consumat credite ElevenLabs.
 
-Parcurge cele 6 momente și verifică dacă murdăria se vede la grădiniță, dar dispare după îngrijire; verifică și colega, ursulețul și cele 3 întrebări. Apoi lasă să se încheie cele 4 pauze de mișcare; pentru copii, poți folosi butonul `+5 secunde`.
+**Nu este verificat pe o tablă Samsung fizică.** Verifică pe dispozitiv sunetul, atingerea și scalarea la rezoluția folosită de tablă.
 
-**Notă drepturi:** verifică dreptul de publicare a adaptării poveștii și condițiile de utilizare/publicare a înregistrărilor generate în ElevenLabs, în funcție de planul folosit. Ilustrațiile 3D folosite sunt materiale vizuale realizate pentru acest proiect.
+## Securitate și pedagogie
+
+Fără conturi, fără reclame și fără colectarea datelor despre copii. Sursă audio: fișierele furnizate de utilizatoare. Narațiunea și ilustrațiile sunt folosite pentru activități educaționale; înainte de distribuire în afara unității, revizuiește drepturile de utilizare ale conținutului audio și ale adaptării.
